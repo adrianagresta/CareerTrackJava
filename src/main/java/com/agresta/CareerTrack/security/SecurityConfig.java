@@ -31,9 +31,9 @@ public class SecurityConfig {
 	public UserDetailsService userDetailsService(DataSource dataSource) {
 		JdbcUserDetailsManager manager = new JdbcUserDetailsManager(dataSource);
 
-		manager.setUsersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username = ?");
-		manager.setAuthoritiesByUsernameQuery("SELECT u.username, a.authority " + "FROM users as u "
-				+ "INNER JOIN authorities as a on u.uid=a.uid " + "WHERE u.username = ?");
+		manager.setUsersByUsernameQuery("SELECT username, password, enabled::int FROM users WHERE username = ?");
+		manager.setAuthoritiesByUsernameQuery("SELECT u.username as username, a.authority as authority "
+				+ "FROM users as u " + "INNER JOIN authorities as a on u.uid=a.uid " + "WHERE u.username = ?");
 
 		return manager;
 	}
