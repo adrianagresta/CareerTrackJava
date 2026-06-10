@@ -2,21 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    
 </head>
 <body>
-<h1>TEST LOGIN PAGE</h1>
+    <header class="header">
+        <h1>Welcome. Please Login.</h1>
+    </header>
 
-<form th:action="@{/perform_login}" method="post">
-    <div>
-        <label>Username: </label>
-        <input type="text" name="username"/>
+    <main class="content">
+        <form th:action="@{/perform_login}" method="post">
+	<div class="flexV">
+		
+		    <div class="flexH center_oa" style="margin: 10px 0 5px 0">
+		        <label>Username: </label>
+		        <input type="text" name="username"/>
+		    </div>
+   		
+		    <div class="flexH center_oa" style="margin: 5px 0 10px 0">
+		        <label>Password: </label>
+		        <input type="password" name="password"/>
+		    </div>
+	    
+	    <button type="submit" style="align-self: center">Login</button>
     </div>
-    <div>
-        <label>Password: </label>
-        <input type="password" name="password"/>
-    </div>
-    <button type="submit">Login</button>
 </form>
+    </main>
 
+    <footer class="footer">
+        <p>&copy;2026 Adrian Agresta</p>
+    </footer>
 </body>
 </html>
